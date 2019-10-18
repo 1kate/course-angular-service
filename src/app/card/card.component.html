@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="!showSpinner; else loading">
+        <div class="col-12 col-sm-3 col-lg-2 border text-center" *ngFor="let item of repos">
+            <div class="p-3">
+                <h4 class="title">{{item.name}}</h4>
+                <img [src]="item.owner.avatar_url" class="img-user" alt="" />
+                <p>id: {{item.id}}</p>
+                <p>login: {{item.owner.login}}</p>
+                <a mat-raised-button [href]="item.html_url" target="_blank">Перейти</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <mat-spinner class="mx-auto"></mat-spinner>
+</ng-template>
